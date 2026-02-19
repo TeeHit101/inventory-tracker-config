@@ -1,3 +1,4 @@
+```
 inventory-tracker-config/
 ├── clusters/
 │   └── my-eks-cluster/
@@ -30,4 +31,5 @@ inventory-tracker-config/
         ├── kustomization.yaml        # Laddar App-filerna
         ├── deployment.yaml           # Din Python Flask-app (Taggen uppdateras av CI/GitHub Actions)
         ├── external-secret.yaml      # Hämtar DB-lösenordet från AWS via ESO
-        └── service.yaml              # AWS Network Load Balancer (NLB) för    publik åtkomst
+        └── service.yaml              # AWS Network Load Balancer (NLB) för publik åtkomst
+```
