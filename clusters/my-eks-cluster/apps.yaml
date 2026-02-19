@@ -1,0 +1,13 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: inventory-apps
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  path: ./apps
+  prune: true # Tar bort resurser i K8s om du tar bort YAML-filen i Git
+  sourceRef:
+    kind: GitRepository
+    name: flux-system # Pekar på det repo som konfigurerades vid 'flux bootstrap'
+  targetNamespace: inventory-tracker

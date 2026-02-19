@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory-app-service
+  namespace: inventory-tracker
+  annotations:
+    # Denna annotation säger åt AWS att använda en modern Network Load Balancer (NLB)
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+spec:
+  selector:
+    app: inventory-app # Måste matcha label i din deployment.yaml
+  ports:
+    - protocol: TCP
+      port: 80 # Porten du surfar på (http://...)
+      targetPort: 5000 # Porten som din Flask-app lyssnar på i containern
+  type: LoadBalancer # Skapar en publik adress i AWS
