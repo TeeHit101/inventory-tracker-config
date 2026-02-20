@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - namespace.yaml
-  - secrets-store.yaml
   - postgres/
   - redis/
   - inventory-app/
