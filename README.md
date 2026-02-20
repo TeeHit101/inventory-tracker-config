@@ -1,7 +1,8 @@
 ```
 inventory-tracker-config/
-├── clusters/
+├── cluster/
 │   └── my-eks-cluster/
+│       ├── flux-system/              # Genererat av 'flux bootstrap' – rör ej
 │       ├── apps.yaml                 # FluxCD-objekt: Säger åt Flux att applicera /apps
 │       ├── infrastructure.yaml       # FluxCD-objekt: Säger åt Flux att applicera /infrastructure
 │       └── kustomization.yaml        # Knyter ihop kluster-mappen
@@ -17,6 +18,7 @@ inventory-tracker-config/
     │
     ├── postgres/
     │   ├── kustomization.yaml        # Laddar Postgres-filerna
+    │   ├── configmap.yaml            # Databas-konfiguration (POSTGRES_DB m.m.)
     │   ├── deployment.yaml           # Databas-containern (postgres:15)
     │   ├── pvc.yaml                  # Begär 5Gi lagring via EBS
     │   └── service.yaml              # Intern nätverksadress (postgres-service)
@@ -29,7 +31,7 @@ inventory-tracker-config/
     │
     └── inventory-app/
         ├── kustomization.yaml        # Laddar App-filerna
-        ├── deployment.yaml           # Din Python Flask-app (Taggen uppdateras av CI/GitHub Actions)
+        ├── deployment.yaml           # Min Python Flask-app (Taggen uppdateras av CI/GitHub Actions)
         ├── external-secret.yaml      # Hämtar DB-lösenordet från AWS via ESO
         └── service.yaml              # AWS Network Load Balancer (NLB) för publik åtkomst
 ```

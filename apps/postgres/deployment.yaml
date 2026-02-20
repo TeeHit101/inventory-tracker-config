@@ -15,6 +15,9 @@ spec:
       containers:
         - name: postgres
           image: postgres:15
+          args:
+            - "-c"
+            - "hba_file=/etc/postgresql/pg_hba.conf"
           ports:
             - containerPort: 5432
           env:
@@ -39,7 +42,13 @@ spec:
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
+            - name: postgres-config
+              mountPath: /etc/postgresql/pg_hba.conf
+              subPath: pg_hba.conf
       volumes:
         - name: postgres-storage
           persistentVolumeClaim:
             claimName: postgres-pvc
+        - name: postgres-config
+          configMap:
+            name: postgres-config

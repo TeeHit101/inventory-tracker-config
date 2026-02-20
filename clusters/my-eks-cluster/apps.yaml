@@ -6,8 +6,10 @@ metadata:
 spec:
   interval: 5m0s
   path: ./apps
-  prune: true # Tar bort resurser i K8s om du tar bort YAML-filen i Git
+  prune: true
   sourceRef:
     kind: GitRepository
-    name: flux-system # Pekar på det repo som konfigurerades vid 'flux bootstrap'
+    name: flux-system
   targetNamespace: inventory-tracker
+  dependsOn:
+    - name: infrastructure-components
