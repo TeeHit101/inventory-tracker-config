@@ -7,3 +7,5 @@ reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
 parameters:
   type: gp3
+  encrypted: "true" # Glöm inte denna, annars aktiveras inte KMS!
+  kmsKeyId: "alias/tee-devops-tee-devops-test-eks-key"
