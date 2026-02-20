@@ -16,7 +16,7 @@ spec:
       containers:
         - name: inventory-app
           # Denna tagg uppdateras av din GitHub Action
-          image: 936777225880.dkr.ecr.eu-north-1.amazonaws.com/inventory-tracker-app:latest
+          image: 936777225880.dkr.ecr.eu-north-1.amazonaws.com/inventory-tracker-app:3713007d3ae84baf3f8a453fc128f27007c3dbe9
           ports:
             - containerPort: 5000
           env:
