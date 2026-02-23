@@ -20,7 +20,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./cluster/my-eks-cluster
+  path: ./clusters/my-eks-cluster
   prune: true
   sourceRef:
     kind: GitRepository
