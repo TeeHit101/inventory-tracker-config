@@ -1,1 +1,1 @@
-Config-App
+Config repo
