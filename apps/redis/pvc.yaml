@@ -6,7 +6,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: ebs-sc # Samma StorageClass som för Postgres
+  storageClassName: longhorn # Använd Longhorn i hemmalabbet
   resources:
     requests:
       storage: 2Gi
