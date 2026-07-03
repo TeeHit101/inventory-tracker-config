@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: inventory-app-ingress
+  namespace: inventory-tracker
+  annotations:
+    cert-manager.io/cluster-issuer: local-ca-issuer
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: inventory.10.207.9.100.sslip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: inventory-app-service
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - inventory.10.207.9.100.sslip.io
+      secretName: inventory-app-tls-cert
