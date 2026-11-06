@@ -20,7 +20,7 @@ spec:
       containers:
         - name: inventory-app
           # Denna tagg uppdateras av din GitHub Action
-          image: ghcr.io/teehit101/inventory-tracker-app:a24ef6304e69e8b27d740d596ac7d993c53f2308
+          image: ghcr.io/teehit101/inventory-tracker-app:4e99e9973bcd0e48ea941ce4e8e9c356b67f5909
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
